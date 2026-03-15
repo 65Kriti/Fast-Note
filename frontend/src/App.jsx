@@ -72,14 +72,14 @@ export default function App() {
         body: JSON.stringify(formData),
       });
       
-      if (!response.ok) throw new Error(`Failed to ${isUpdating ? 'update' : 'create'} post`);
+      if (!response.ok) throw new Error(`Failed to ${isUpdating ? 'update' : 'create'} note`);
       
       // Reset and go back
       setFormData({ title: '', content: '' });
       setActivePost(null);
       setCurrentView('list');
     } catch (err) {
-      setError(`Failed to save post. Please try again.`);
+      setError(`Failed to save note. Please try again.`);
     } finally {
       setIsLoading(false);
     }
@@ -337,7 +337,7 @@ export default function App() {
                     className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-100 transition disabled:opacity-70 shadow-sm"
                   >
                     {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
-                    {isLoading ? 'Saving...' : (activePost ? 'Update Post' : 'Publish Post')}
+                    {isLoading ? 'Saving...' : (activePost ? 'Update Note' : 'Publish Note')}
                   </button>
                 </div>
               </div>
